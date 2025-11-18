@@ -6,6 +6,10 @@ import {
   ExternalLink,
   Award,
   Briefcase,
+  Building2,
+  Calendar,
+  MapPin,
+  X,
   Layers,
   GraduationCap,
   Sparkles,
@@ -15,6 +19,8 @@ import {
 const App = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const [isVisible, setIsVisible] = useState({});
+
+  const [selectedExp, setSelectedExp] = useState(null);   
 
 
   const allSkills = [
@@ -95,6 +101,79 @@ const App = () => {
     },
   ];
 
+const experiences = [
+    {
+      title: "Machine Learning Engineer",
+      organization: "Exponential AI",
+      period: "Nov 2024 – Present",
+      location: "Hyderabad, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "/expo.jpeg", // ← in public folder
+      highlights: [
+        "Leading a 10-member team building LLM-powered RAG systems preventing $20M+ claim denials yearly",
+        "Deployed custom embedding + reranker pipelines hitting 98.2% accuracy in production",
+        "Built intelligent email & multi-format parser cutting processing time by 89%",
+        "Systems live at Fortune 500 healthcare and $2B+ Medicaid platforms across the US"
+      ]
+    },
+    {
+      title: "AI Research Intern",
+      organization: "Harvard Medical School – Shafiee Lab",
+      period: "Feb 2024 – Jul 2024",
+      location: "Boston, USA",
+      icon: <Building2 className="w-5 h-5" />,
+      logoUrl: "public/harvard.png",
+      highlights: [
+        "Co-invented SPyDERMAN — GAN-based smartphone diagnostics for Hepatitis C (Science Advances 2024)",
+        "Developed VISTA — electricity-free AI-powered viral testing cartridge (Advanced Materials Technologies 2025)",
+        "Achieved 94.59% accuracy detecting HCV at 574 IU/ml — works in areas with no labs or power",
+        "Presented AI-for-IVF work at ASRM 2024"
+      ]
+    },
+    {
+      title: "Full-Stack Intern",
+      organization: "Fidelity Investments",
+      period: "Jun 2023 – Aug 2023",
+      location: "Bengaluru, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "public/Fidelity-Logo.png",
+      highlights: [
+        "Led a team of 15 interns to merge 4 internal platforms into one unified NextGen UI",
+        "Reduced transaction processing time from 8–10 minutes to under 3 minutes (90% efficiency gain)",
+        "Built production-ready dashboards used daily by brokerage operations teams",
+        "Presented to senior leadership and received outstanding rating"
+      ]
+    },
+    {
+      title: "Data Science Intern",
+      organization: "Exposys Data Labs",
+      period: "Oct 2022",
+      location: "Bengaluru, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "public/exposys.jpeg",
+      highlights: [
+        "Developed Early Diabetes Prediction model on 10,000+ patient records",
+        "Performed full EDA + feature engineering to reveal key risk patterns",
+        "Achieved 99.2% accuracy using Random Forest — best among all classifiers tested",
+        "Built complete end-to-end ML pipeline ready for deployment"
+      ]
+    },
+    {
+      title: "Web Development Intern",
+      organization: "Sonata Software",
+      period: "Feb 2022 – May 2022",
+      location: "Bengaluru, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "public/Sonata_Software.png",
+      highlights: [
+        "Built fully responsive heritage preservation website for INTACH Bangalore with 360° virtual tours",
+        "Led front-end development using HTML, CSS, JavaScript, and Bootstrap",
+        "Collaborated with team of 8 to deliver accessible platform promoting Indian cultural heritage",
+        "Live website → https://www.intachblr.org/ulsoorsomeshwara/"
+      ]
+    }
+  ];
+
   const achievements = [
     "Recipient of the National Research Fellowship (2024).",
     "Led a team of 5 engineers to successfully launch a major product feature.",
@@ -132,52 +211,84 @@ const App = () => {
     },
   ];
 
-  const experiences = [
-    {
-      title: "Lorem Ipsum Specialist",
-      organization: "Dolor Sit Amet Institute",
-      year: "2024",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      icon: <Award className="w-5 h-5" />,
-      logoUrl: "https://placehold.co/30x30/FFFFFF/1D4ED8?text=DI",
+
+
+//   useEffect(() => {
+//   const observer = new IntersectionObserver(
+//     (entries) => {
+//       entries.forEach((entry) => {
+//         const id = entry.target.id;
+
+//         // 1. Trigger fade-in as soon as any part enters the viewport
+//         if (entry.isIntersecting) {
+//           setIsVisible((prev) => ({ ...prev, [id]: true }));
+//         }
+
+//         // 2. Update active nav when section takes up a good portion of the screen
+//         if (entry.intersectionRatio > 0.2) {
+//           setActiveSection(id);
+//         }
+//       });
+//     },
+//     {
+//       threshold: [0, 0.1, 0.2, 0.3, 0.5], // multiple thresholds for better control
+//       rootMargin: "-10% 0px -20% 0px", // reduced bottom margin drastically
+//     }
+//   );
+
+//   document.querySelectorAll("section[id]").forEach((section) => {
+//     observer.observe(section);
+//   });
+
+//   // Also force-show the last section if user has scrolled to bottom
+//   const handleScroll = () => {
+//     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+//       setIsVisible((prev) => ({ ...prev, "contact": true }));
+//       setActiveSection("contact");
+//     }
+//   };
+//   window.addEventListener("scroll", handleScroll);
+
+//   return () => {
+//     observer.disconnect();
+//     window.removeEventListener("scroll", handleScroll);
+//   };
+// }, []);
+
+useEffect(() => {
+  // Hero is always visible
+  setIsVisible({ hero: true });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
+        }
+      });
     },
-    {
-      title: "Consectetur Adipiscing Intern",
-      organization: "Elit Research Center",
-      year: "2023",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      icon: <Briefcase className="w-5 h-5" />,
-      logoUrl: "https://placehold.co/30x30/FFFFFF/1D4ED8?text=RC",
-    },
-  ];
+    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+  );
 
+  document.querySelectorAll("section[id]").forEach((section) => {
+    if (section.id !== "hero") observer.observe(section);
+  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.id;
+  return () => observer.disconnect();
+}, []);
 
-          if (entry.isIntersecting) {
-            setIsVisible((prev) => ({ ...prev, [id]: true }));
-          }
+// ← ADD THIS (fixes modal + background scroll forever)
+useEffect(() => {
+  if (selectedExp) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "unset";
+  }
 
-          if (entry.intersectionRatio > 0.3) {
-            setActiveSection(id);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50% 0px" }
-    );
-
-    document.querySelectorAll("section[id]").forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  return () => {
+    document.body.style.overflow = "unset";
+  };
+}, [selectedExp]);
 
   const NavLink = ({ href, children }) => {
     const sectionId = href.substring(1);
@@ -239,61 +350,61 @@ const App = () => {
 
       {/* Hero Section */}
       {/* Adjusted pt-28 to pt-16 since the nav bar is now hidden on mobile */}
-      <section
-        id="hero"
-        className="min-h-screen flex items-center justify-center px-6 pt-16 md:pt-16"
-      >
+      <section id="hero" className="min-h-screen flex items-center justify-center px-6 pt-16 md:pt-20">
         <div className="max-w-5xl w-full">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            {/* Text Content - left */}
-            <div className="order-1 text-center md:text-left">
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 
-                bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent"
-              >
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            
+            {/* Text Content - Left */}
+            <div className="text-center md:text-left space-y-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight 
+                bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
                 Manasvi Alam
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-3 font-light">
-              Donec porttitor eros 
+
+              <p className="text-xl md:text-2xl font-medium text-gray-700 tracking-tight">
+                Machine Learning Engineer & Data Scientist
               </p>
-              <p className="text-md text-gray-600 leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                risus magna, viverra a tincidunt vel, congue at sapien.
-                Suspendisse potenti. Nulla facilisi. Donec porttitor eros quis
-                justo vulputate, nec ultricies urna gravida.
+
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                I love building intelligent systems that solve real problems — from production-grade LLM pipelines to creative deep learning research. 
+                Passionate about clean code, scalable deployments, and pushing models from prototype to impact.
               </p>
-              <div className="flex gap-3 justify-center md:justify-start">
+
+              {/* Social Icons - Perfectly spaced & sized */}
+              <div className="flex gap-5 justify-center md:justify-start pt-4">
                 <a
-                  href="#"
+                  href="https://github.com/manasvialam"
                   target="_blank"
-                  className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all hover:scale-110 text-gray-700 hover:text-blue-600"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-gray-700 hover:text-blue-600"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/manasvi-alam/"
                   target="_blank"
-                  className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all hover:scale-110 text-gray-700 hover:text-blue-600"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-gray-700 hover:text-blue-600"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-6 h-6" />
                 </a>
                 <a
-                  href="mailto:your.email@example.com"
-                  className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all hover:scale-110 text-gray-700 hover:text-blue-600"
+                  href="mailto:manasvialam03@gmail.com"
+                  className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-gray-700 hover:text-blue-600"
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-6 h-6" />
                 </a>
               </div>
             </div>
-            
-            {/* Photo - right */}
+
+            {/* Photo - Right */}
             <div className="order-2 flex justify-center">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 rounded-3xl blur-md opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden bg-white shadow-2xl">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-1000"></div>
+                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden bg-white shadow-2xl">
                   <img
-                    src="https://placehold.co/400x400/2563EB/FFFFFF?text=Manasvi Alam"
-                    alt="Profile"
+                    src="/profile.png" 
+                    alt="Manasvi Alam"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -309,84 +420,122 @@ const App = () => {
           <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
             About Me
           </h2>
-          <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border border-blue-100 hover:shadow-3xl transition-all duration-500">
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              risus magna, viverra a tincidunt vel, congue at sapien.
-              Suspendisse potenti. Nulla facilisi. Donec porttitor eros quis
-              justo vulputate, nec ultricies urna gravida.
+          <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border border-blue-100">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              I'm a Machine Learning Engineer currently working full-time, building and shipping LLM-powered systems and end-to-end ML pipelines used by large-scale clients every day.
             </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Before this, I spent six months as an AI Research Intern at Harvard Medical School’s Shafiee Lab — an incredible experience that blended deep learning research with real-world engineering challenges and resulted in publications I'm really proud of.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              I graduated with a B.Tech in Computer Science (AI & Data Science specialization) from SASTRA University, where I served as Vice-Chairperson of the Entrepreneurship Cell, won national hackathons, and got deeply involved in building things that matter.
+            </p>
+
             <p className="text-lg text-gray-700 leading-relaxed">
-              Quisque vel odio eget nunc placerat posuere. Maecenas aliquet orci
-              ut ligula lacinia, vel pellentesque augue cursus. Aliquam erat
-              volutpat. Curabitur tincidunt nisl a risus pharetra, in dapibus
-              sapien bibendum.
+              Outside work, I enjoy mentoring students, staying up-to-date with the latest in LLMs and vision models, volunteering, and occasionally trying to explain transformers to my family over chai. 
+              Always open to interesting conversations — feel free to reach out!
             </p>
           </div>
         </div>
       </section>
       
       {/* Experience Section - IMPROVED MOBILE TIMELINE */}
+      {/* ====== NEW INTERACTIVE EXPERIENCE SECTION ====== */}
       <section id="experience" className={getSectionClass("experience")}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
-            Research Experience
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-16 text-center bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
+            Professional Experience
           </h2>
-          <div className="space-y-6 relative">
-            {/* Timeline Line: Adjusted left-alignment for mobile/md */}
-            <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-blue-400 transform md:-translate-x-1/2"></div>
 
-            {experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                // Force left alignment on mobile, only alternate on medium screens
-                className={`flex justify-start ${ 
-                  idx % 2 === 0 ? "md:justify-start" : "md:justify-end"
-                } relative`}
-              >
+          <div className="relative">
+            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 via-cyan-400 to-transparent h-full rounded-full"></div>
+
+            <div className="space-y-12 md:space-y-20">
+              {experiences.map((exp, idx) => (
                 <div
-                  className={`w-full md:w-1/2 p-3 ${
-                    idx % 2 === 0 ? "md:pr-8" : "md:pl-8"
-                  } rounded-xl`}
+                  key={idx}
+                  className={`relative flex items-center ${idx % 2 === 0 ? "md:justify-start" : "md:justify-end"} cursor-pointer`}
+                  onClick={() => setSelectedExp(exp)}
                 >
-                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 shadow-xl border border-blue-100 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 hover:scale-[1.02] transform origin-center">
-                    {/* Circle Icon: Adjusted position to match left-aligned line on mobile */}
-                    <div
-                      className={`absolute top-0 transform -translate-y-1/2 
-                      left-[14px] md:left-1/2 md:translate-x-[-15px] 
-                      p-1.5 rounded-full bg-blue-600 text-white ring-6 ring-blue-50 z-10`}
-                    >
-                      {exp.icon}
-                    </div>
+                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10 hover:scale-125 transition-all duration-300"></div>
 
-                    <p className="text-xs text-gray-500 mb-1 font-semibold pt-3">
-                      {exp.year}
-                    </p>
-                    <div className="flex items-center gap-2 mb-1">
-                        {/* Company Logo Space */}
+                  <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${idx % 2 === 0 ? "md:mr-12" : "md:ml-12"}`}>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-blue-100 hover:shadow-2xl hover:border-blue-300 transition-all duration-500 hover:scale-[1.03] group">
+                      <div className="flex items-start gap-4">
                         {exp.logoUrl && (
-                            <img
-                                src={exp.logoUrl}
-                                alt={`${exp.organization} Logo`}
-                                className="w-6 h-6 rounded-md shadow-sm border border-gray-200"
-                            />
+                          <img src={exp.logoUrl} alt={exp.organization} className="w-12 h-12 rounded-lg shadow-md flex-shrink-0 object-contain bg-white p-1" />
                         )}
-                        <h3 className="text-lg font-bold text-gray-800">
-                            {exp.title}
-                        </h3>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-700 transition">{exp.title}</h3>
+                          <p className="text-blue-600 font-medium">{exp.organization}</p>
+                          <p className="text-sm text-gray-500 mt-1">{exp.period} • {exp.location}</p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-blue-600 text-sm font-medium mb-2">
-                      {exp.organization}
-                    </p>
-                    <p className="text-gray-700 text-sm leading-normal">
-                      {exp.description}
-                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* MODAL */}
+        {/* SIMPLE MODAL - JUST WORKS, NO PORTAL, NO DRAMA */}
+        {selectedExp && (
+          <div 
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            style={{ backgroundColor: "rgba(0,0,0,0.7)" }} // dark backdrop
+            onClick={() => setSelectedExp(null)}
+          >
+            {/* Click outside or on backdrop closes it */}
+            <div 
+              className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto p-8 relative"
+              onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+            >
+              {/* Close X button */}
+              <button 
+                onClick={() => setSelectedExp(null)}
+                className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Logo */}
+              {selectedExp.logoUrl && (
+                <div className="flex justify-center mb-4">
+                  <img 
+                    src={selectedExp.logoUrl} 
+                    alt={selectedExp.organization}
+                    className="w-20 h-20 object-contain rounded-lg"
+                  />
+                </div>
+              )}
+
+              {/* Title & Company */}
+              <h3 className="text-2xl font-bold text-center text-gray-800">
+                {selectedExp.title}
+              </h3>
+              <p className="text-center text-blue-600 font-semibold mt-1">
+                {selectedExp.organization}
+              </p>
+              <p className="text-center text-sm text-gray-500 mt-1 mb-6">
+                {selectedExp.period} • {selectedExp.location}
+              </p>
+
+              {/* Bullet points */}
+              <ul className="space-y-3 text-gray-700">
+                {selectedExp.highlights.map((point, i) => (
+                  <li key={i} className="flex">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Skills Section - FIXED: Icons stay in full color */}
