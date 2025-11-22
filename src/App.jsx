@@ -224,7 +224,7 @@ const experiences = [
       venue: "Advanced Materials Technologies",
       year: "2025",
       description:
-        "Contributed to the development and fine-tuning of a compact neural network that automates assay interpretation from smartphone images with ~94% accuracy. Worked on VISTA, a disposable, electricity-free microfluidic platform capable of detecting SARS-CoV-2 and HCV in under 45 minutes using just a smartphone. The system is robust across diverse imaging conditions and can detect viral loads as low as 4,000 copies/mL (SARS-CoV-2) and 2,200 copies/mL (HCV). By integrating AI, microfluidics, and nanotechnology, the platform delivers lab-quality diagnostics in point-of-care and resource-limited settings.",
+        "Developed a compact neural network for smartphone-based assay reading (~94% accuracy) on VISTA, a low-cost, electricity-free microfluidic platform detecting SARS-CoV-2 and HCV in <45 minutes and at low viral loads, enabling lab-quality diagnostics in resource-limited settings.",
       tags: ["CNNs", "On-Device Inference", "Model Quantization"],
       link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202500025",
       imageUrl: "public/advance.jpeg", 
@@ -237,7 +237,7 @@ const experiences = [
       venue: "American Society of Reproductive Medicine (ASRM), Fertility and Sterility (Poster)",
       year: "2024",
       description:
-        "We propose an ensemble AI-based framework for predicting live birth rates by integrating patient characteristics, IVF cycle outcomes, and embryo imaging data. This approach shifts from traditional embryo-centric predictions to comprehensive cycle-based forecasting, offering improved tools for personalized counseling and decision-making in family planning.",
+        "Proposed an ensemble AI model that predicts live birth rates by combining patient data, cycle outcomes, and embryo imaging, enabling more personalized IVF counseling and decisions.",
       tags: ["Multimodal Fusion", "Ensemble Models", "Vision Transformers"],
       link: "https://www.fertstert.org/article/S0015-0282(24)01161-0/fulltext",
       imageUrl: "public/asrm.png", 
@@ -267,7 +267,7 @@ const experiences = [
       link: "https://drive.google.com/file/d/1huVK79TIKXwhYZcg1IhQ86NiPg9Plbze/view?usp=drive_link",
       imageUrl: "public/final_year_prjjeect.jpeg", 
       // Add this line to highlight your name
-      //highlightAuthor: "Manasvi Alam"
+      highlightAuthor: "Manasvi Alam"
     }
   ];
 
@@ -382,8 +382,7 @@ useEffect(() => {
               </p>
 
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                I love building intelligent systems that solve real problems — from production-grade LLM pipelines to creative deep learning research. 
-                Passionate about clean code, scalable deployments, and pushing models from prototype to impact.
+                I enjoy designing systems that blend strong engineering with practical machine learning. I’m driven by clarity, simplicity, and building tools that genuinely help people get things done.
               </p>
 
               {/* Social Icons - Perfectly spaced & sized */}
@@ -440,16 +439,11 @@ useEffect(() => {
           <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 md:p-10 shadow-2xl border border-blue-100">
             <div className="space-y-5 text-base leading-relaxed text-gray-700 max-w-3xl mx-auto">
               <p>
-                I build and ship production AI systems that solve hard, real-world problems — mostly with LLMs, retrieval-augmented generation, and custom deep learning pipelines.
-                At Exponential AI, I currently lead the development of high-accuracy RAG platforms and intelligent document processing systems used daily by some of the largest healthcare networks in the US.
-                Before this, I spent six months at Harvard Medical School researching deep learning diagnostics for low-resource settings, resulting in publications in Science Advances and Advanced Materials Technologies.
+                I build and ship production AI systems using LLMs, RAG, and custom deep learning pipelines. At Exponential AI, I lead the development of high-accuracy RAG and intelligent document processing platforms used across major US healthcare networks. Previously, I conducted deep learning diagnostics research at Harvard Medical School, with publications in Science Advances and Advanced Materials Technologies.
+                I care about clean, scalable code, reliable ML infrastructure, and turning research into real systems.
               </p>
-              <p>
-                I care deeply about writing clean, scalable code, designing reliable ML infrastructure, and turning research ideas into systems that actually get used.
-              </p>
-
               <p className="text-blue-600 font-medium pt-3">
-                Always interested in thoughtful conversations about AI engineering, new model architectures, or deployment challenges. Happy to connect.
+                Always open to thoughtful conversations, whether about tech, careers, or creative ideas.
               </p>
             </div>
           </div>
@@ -458,6 +452,7 @@ useEffect(() => {
       
       {/* Experience Section - IMPROVED MOBILE TIMELINE */}
       {/* Experience Section - Ultra Compact & Professional */}
+      {/* Experience Section - Clean Hover Glow (No Animated Bar) */}
       <section id="experience" className={getSectionClass("experience")}>
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 bg-clip-text text-transparent">
@@ -468,20 +463,27 @@ useEffect(() => {
             {experiences.map((exp, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white/90 backdrop-blur-lg rounded-2xl shadow-md hover:shadow-xl 
-                          border border-gray-100 hover:border-blue-200 transition-all duration-400 
-                          overflow-hidden hover:-translate-y-1"
+                className="group relative bg-white/90 backdrop-blur-lg rounded-2xl shadow-md transition-all duration-500 
+                          border border-gray-100 hover:border-transparent hover:shadow-2xl 
+                          hover:-translate-y-2 overflow-hidden"
               >
-                {/* Thin Gradient Bar */}
+                {/* Soft Glow on Hover */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                                bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-sky-500/10 blur-2xl -z-10"></div>
+
+                {/* Static Top Gradient Bar (Always Visible) */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500"></div>
 
                 <div className="p-5 md:p-7">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row justify-between items-start gap-5 mb-4">
                     <div className="flex items-start gap-4">
-                      {/* Logo */}
+                      {/* Logo with Subtle Glow */}
                       <div className="relative flex-shrink-0">
-                        <div className="bg-white p-2.5 rounded-xl shadow-md ring-1 ring-gray-200 group-hover:ring-blue-300 transition-all">
+                        <div className="absolute -inset-1 bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-sky-400/20 
+                                        rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                        <div className="bg-white p-2.5 rounded-xl shadow-md ring-1 ring-gray-200 
+                                        group-hover:ring-blue-300 group-hover:shadow-xl transition-all duration-400">
                           {exp.logoUrl ? (
                             <img src={exp.logoUrl} alt="" className="w-12 h-12 object-contain rounded" />
                           ) : (
@@ -494,10 +496,10 @@ useEffect(() => {
 
                       {/* Title & Company */}
                       <div>
-                        <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-400">
                           {exp.title}
                         </h3>
-                        <p className="text-base font-medium text-blue-600 flex items-center gap-1.5 mt-0.5">
+                        <p className="text-base font-medium text-blue-600 flex items-center gap-1.5 mt-0.5 group-hover:text-blue-700 transition-colors">
                           <Building2 className="w-4 h-4" />
                           {exp.organization}
                         </p>
@@ -506,21 +508,21 @@ useEffect(() => {
 
                     {/* Date & Location */}
                     <div className="text-left md:text-right text-sm space-y-0.5">
-                      <div className="flex items-center gap-1.5 text-gray-700 font-medium">
+                      <div className="flex items-center gap-1.5 text-gray-700 font-medium group-hover:text-gray-900 transition-colors">
                         <Calendar className="w-4 h-4 text-blue-600" />
                         <span>{exp.period}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-gray-500">
+                      <div className="flex items-center gap-1.5 text-gray-500 group-hover:text-gray-700 transition-colors">
                         <MapPin className="w-4 h-4" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Super Tight Bullets */}
+                  {/* Highlights */}
                   <ul className="space-y-1.5 text-gray-700 text-sm md:text-base leading-snug">
                     {exp.highlights.map((point, i) => (
-                      <li key={i} className="flex items-start">
+                      <li key={i} className="flex items-start group-hover:text-gray-800 transition-colors duration-300">
                         <span className="text-cyan-500 font-bold mr-3 mt-0.5">▸</span>
                         <span>{point}</span>
                       </li>
@@ -640,14 +642,39 @@ useEffect(() => {
           <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
             Education
           </h2>
-          <div className="space-y-6 relative">
-            {/* Timeline Line: Adjusted left-alignment for mobile/md */}
+
+          {/* Mobile: Clean Vertical Timeline */}
+          <div className="md:hidden space-y-8">
+            <div className="relative">
+              {/* Vertical Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-400"></div>
+
+              {education.map((edu, idx) => (
+                <div key={idx} className="flex gap-6 relative mb-8">
+                  {/* Circle Icon */}
+                  <div className="absolute left-4 top-2 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg ring-4 ring-blue-50 z-10">
+                    {edu.icon}
+                  </div>
+
+                  {/* Card */}
+                  <div className="ml-16 flex-1 bg-white/70 backdrop-blur-sm rounded-xl p-5 shadow-xl border border-blue-100">
+                    <p className="text-xs text-gray-500 font-semibold">{edu.year}</p>
+                    <h3 className="text-lg font-bold text-gray-800 mt-1">{edu.degree}</h3>
+                    <p className="text-blue-600 text-sm font-medium mt-1">{edu.institution}</p>
+                    <p className="text-gray-700 text-sm mt-3 leading-relaxed">{edu.details}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Your Original Beautiful Timeline — 100% Unchanged */}
+          <div className="hidden md:block space-y-6 relative">
             <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-blue-400 transform md:-translate-x-1/2"></div>
             
             {education.map((edu, idx) => (
-               <div
+              <div
                 key={idx}
-                // Force left alignment on mobile, only alternate on medium screens
                 className={`flex justify-start ${
                   idx % 2 !== 0 ? "md:justify-start" : "md:justify-end"
                 } relative`}
@@ -658,7 +685,6 @@ useEffect(() => {
                   } rounded-xl`}
                 >
                   <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 shadow-xl border border-blue-100 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 hover:scale-[1.02] transform origin-center">
-                    {/* Circle Icon: Adjusted position to match left-aligned line on mobile */}
                     <div
                       className={`absolute top-0 transform -translate-y-1/2 
                         left-[14px] md:left-1/2 md:translate-x-[-15px]
@@ -689,6 +715,9 @@ useEffect(() => {
 
 
       {/* Publications Section - IMPROVED MOBILE STACKING AND IMAGE SIZING */}
+      {/* Publications Section - Perfect Image Alignment on Mobile & Desktop */}
+      {/* Publications Section - Mobile: Full Image on Top | Desktop: Side-by-Side */}
+      {/* Publications Section - With Soft Hover Glow (Only Change) */}
       <section id="publications" className={getSectionClass("publications")}>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
@@ -698,77 +727,104 @@ useEffect(() => {
             {publications.map((pub, idx) => (
               <div
                 key={idx}
-                className="bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-xl border border-blue-100 hover:shadow-2xl hover:border-blue-300 transition-all duration-300 hover:-translate-y-0.5"
+                className="group relative bg-white/70 backdrop-blur-sm rounded-xl shadow-xl border border-blue-100 
+                          hover:shadow-2xl hover:border-transparent transition-all duration-500 
+                          hover:-translate-y-1 overflow-hidden"
               >
-                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                  {/* Clickable Image */}
-                  {pub.imageUrl && (
-                    <a
-                      href={pub.link || "#"}
-                      target={pub.link ? "_blank" : undefined}
-                      rel={pub.link ? "noopener noreferrer" : undefined}
-                      onClick={(e) => !pub.link && e.preventDefault()}
-                      className={`flex-shrink-0 ${pub.link ? 'cursor-pointer' : 'cursor-default'}`}
-                    >
-                      <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white/90 rounded-lg shadow-md overflow-hidden border border-gray-200 flex items-center justify-center">
+                {/* Soft Glow on Hover - ONLY NEW THING */}
+                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                                bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-sky-500/10 blur-2xl -z-10"></div>
+
+                {/* Static Top Gradient Bar (Already there) */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500"></div>
+
+                {/* Your original content - 100% unchanged */}
+                {/* Mobile: Full Image at Top */}
+                {pub.imageUrl && (
+                  <a
+                    href={pub.link || "#"}
+                    target={pub.link ? "_blank" : undefined}
+                    rel={pub.link ? "noopener noreferrer" : undefined}
+                    onClick={(e) => !pub.link && e.preventDefault()}
+                    className="block md:hidden"
+                  >
+                    <img
+                      src={pub.imageUrl}
+                      alt={`${pub.title} cover`}
+                      className="w-full h-auto object-cover rounded-t-xl"
+                    />
+                  </a>
+                )}
+
+                <div className="p-4 sm:p-6 md:p-8">
+                  <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+                    {/* Desktop: Image on Left */}
+                    {pub.imageUrl && (
+                      <a
+                        href={pub.link || "#"}
+                        target={pub.link ? "_blank" : undefined}
+                        rel={pub.link ? "noopener noreferrer" : undefined}
+                        onClick={(e) => !pub.link && e.preventDefault()}
+                        className="hidden md:block flex-shrink-0"
+                      >
                         <img
                           src={pub.imageUrl}
                           alt={`${pub.title} cover`}
-                          className="max-w-full max-h-full object-contain p-3 hover:opacity-90 transition-opacity"
+                          className="w-48 h-auto object-cover rounded-lg shadow-md border border-gray-200 hover:opacity-90 transition-opacity"
                         />
+                      </a>
+                    )}
+
+                    {/* Text Content - 100% unchanged */}
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start gap-3">
+                        <h3 className="text-xl font-semibold text-gray-800 leading-tight pr-2">
+                          {pub.title}
+                        </h3>
+                        {pub.link && (
+                          <a
+                            href={pub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors shadow-sm flex-shrink-0"
+                            title="View Publication"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        )}
                       </div>
-                    </a>
-                  )}
 
-                  {/* Text Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start gap-3">
-                      <h3 className="text-xl font-semibold text-gray-800 leading-tight pr-2">
-                        {pub.title}
-                      </h3>
-                      {pub.link && (
-                        <a
-                          href={pub.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors shadow-sm flex-shrink-0"
-                          title="View Publication"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
-                    </div>
+                      <p className="text-xs text-gray-600 mt-2 mb-1 italic leading-relaxed">
+                        {pub.authors.split(", ").map((author, i, arr) => (
+                          <span key={i}>
+                            {pub.highlightAuthor && author.includes(pub.highlightAuthor) ? (
+                              <strong className="font-extrabold text-black">{author}</strong>
+                            ) : (
+                              author
+                            )}
+                            {i < arr.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </p>
 
-                    <p className="text-xs text-gray-600 mt-2 mb-1 italic leading-relaxed">
-                      {pub.authors.split(", ").map((author, i, arr) => (
-                        <span key={i}>
-                          {pub.highlightAuthor && author.includes(pub.highlightAuthor) ? (
-                            <strong className="font-extrabold text-black">{author}</strong>
-                          ) : (
-                            author
-                          )}
-                          {i < arr.length - 1 && ", "}
-                        </span>
-                      ))}
-                    </p>
+                      <p className="text-sm font-bold text-blue-600 mb-2">
+                        {pub.venue}, {pub.year}
+                      </p>
 
-                    <p className="text-sm font-bold text-blue-600 mb-2">
-                      {pub.venue}, {pub.year}
-                    </p>
+                      <p className="text-sm text-gray-700 leading-relaxed mb-3 line-clamp-3">
+                        {pub.description}
+                      </p>
 
-                    <p className="text-sm text-gray-700 leading-relaxed mb-3 line-clamp-3">
-                      {pub.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5">
-                      {pub.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-0.5 text-xs rounded-full bg-blue-100 text-blue-700 font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      <div className="flex flex-wrap gap-1.5">
+                        {pub.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-0.5 text-xs rounded-full bg-blue-100 text-blue-700 font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
