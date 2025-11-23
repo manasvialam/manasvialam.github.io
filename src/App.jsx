@@ -172,9 +172,9 @@ const experiences = [
       highlights: [
         "Built fully responsive heritage preservation website for INTACH Bangalore with 360° virtual tours",
         "Led front-end development using HTML, CSS, JavaScript, and Bootstrap",
-        "Collaborated with team of 8 to deliver accessible platform promoting Indian cultural heritage",
-        "Live website → https://www.intachblr.org/ulsoorsomeshwara/"
-      ]
+        "Collaborated with team of 8 to deliver accessible platform promoting Indian cultural heritage"
+      ],
+      link: "https://www.intachblr.org/ulsoorsomeshwara/"  // This makes the icon appear
     }
   ];
 
@@ -483,14 +483,14 @@ useEffect(() => {
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 
                                 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-sky-500/10 blur-2xl -z-10"></div>
 
-                {/* Static Top Gradient Bar (Always Visible) */}
+                {/* Static Top Gradient Bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-sky-500"></div>
 
                 <div className="p-5 md:p-7">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row justify-between items-start gap-5 mb-4">
                     <div className="flex items-start gap-4">
-                      {/* Logo with Subtle Glow */}
+                      {/* Logo */}
                       <div className="relative flex-shrink-0">
                         <div className="absolute -inset-1 bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-sky-400/20 
                                         rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
@@ -506,11 +506,24 @@ useEffect(() => {
                         </div>
                       </div>
 
-                      {/* Title & Company */}
+                      {/* Title + Company + Link Icon */}
                       <div>
-                        <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-400">
-                          {exp.title}
-                        </h3>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-400">
+                            {exp.title}
+                          </h3>
+                          {exp.link && (
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-800 transition-colors"
+                              title="View Live Project"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
                         <p className="text-base font-medium text-blue-600 flex items-center gap-1.5 mt-0.5 group-hover:text-blue-700 transition-colors">
                           <Building2 className="w-4 h-4" />
                           {exp.organization}
@@ -883,21 +896,41 @@ useEffect(() => {
       </section>
 
       {/* Achievements & Leadership Section */}
+      {/* Achievements & Leadership - Ultra Clean & Professional */}
       <section id="achievements" className={getSectionClass("achievements")}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-gray-800 text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 bg-clip-text text-transparent">
             Achievements & Leadership
           </h2>
-          <Card className="p-8">
-            <ul className="space-y-3 list-none p-0">
-              {achievements.map((item, idx) => (
-                <li key={idx} className="flex items-start text-md text-gray-700">
-                  <Sparkles className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
+
+          <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-blue-100">
+            <ul className="space-y-3.5 text-gray-700 text-base leading-snug">
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  Published <strong className="font-bold text-gray-900">3 papers</strong> in <strong className="font-bold text-gray-900">Science Advances</strong>, <strong className="font-bold text-gray-900">Advanced Materials Technologies</strong>, and <strong className="font-bold text-gray-900">ASRM</strong>
+                </span>
+              </li>
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong className="font-bold text-gray-900">1st Place Winner</strong> — National Hackathon (DAKSH), Awarded <strong className="font-bold text-gray-900">₹50,000</strong>
+                </span>
+              </li>
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  Selected for <strong className="font-bold text-gray-900">MIT GrandHack 2024</strong> & <strong className="font-bold text-gray-900">AI Cures Conference</strong>, Boston
+                </span>
+              </li>
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong className="font-bold text-gray-900">Head & Vice-Chairperson</strong> — Entrepreneurship Cell, SASTRA University | Organized events with <strong className="font-bold text-gray-900">600+</strong> attendees and supported the launch of <strong className="font-bold text-gray-900">10+ startups</strong> across domains
+                </span>
+              </li>
             </ul>
-          </Card>
+          </div>
         </div>
       </section>
 
