@@ -51,24 +51,24 @@ const App = () => {
     { name: "Scikit-learn", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
     { name: "OpenCV", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" },
     { name: "Matplotlib", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
-    { name: "Seaborn", logoUrl: "/seaborn-1.svg" },
+    { name: "Seaborn", logoUrl: "/portfolio-website/seaborn-1.svg" },
     { name: "NLTK", logoUrl: "https://placehold.co/40x40/4096c4/FFFFFF?text=NLTK" },
-    { name: "LangChain", logoUrl: "/lanchain.png" },
+    { name: "LangChain", logoUrl: "/portfolio-website/lanchain.png" },
 
     // Databases & Big Data
     { name: "PostgreSQL", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
     { name: "MongoDB", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    { name: "ChromaDB", logoUrl: "/chromadb.png" },
+    { name: "ChromaDB", logoUrl: "/portfolio-website/chromadb.png" },
     { name: "Hadoop", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" },
-    { name: "Tableau", logoUrl: "/tableau.jpeg" },
+    { name: "Tableau", logoUrl: "/portfolio-website/tableau.jpeg" },
 
     // DevOps & MLOps
     { name: "Docker", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
     { name: "Kubernetes", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg" },
     { name: "Git", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
     { name: "Bitbucket", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
-    { name: "DVC", logoUrl: "/dvc.png" },
-    { name: "MLFlow", logoUrl: "/mlflow.png" },
+    { name: "DVC", logoUrl: "/portfolio-website/dvc.png" },
+    { name: "MLFlow", logoUrl: "/portfolio-website/mlflow.png" },
     { name: "Insomnia", logoUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg" },
   ];
   
@@ -112,7 +112,7 @@ const experiences = [
       period: "Nov 2024 – Present",
       location: "Hyderabad, India",
       icon: <Briefcase className="w-5 h-5" />,
-      logoUrl: "/expo.jpeg", // ← in public folder
+      logoUrl: "/portfolio-website/expo.jpeg", // ← in public folder
       highlights: [
         "Leading a 10-member team building LLM-powered RAG systems preventing $20M+ claim denials yearly",
         "Deployed custom embedding + reranker pipelines hitting 98.2% accuracy in production",
@@ -126,7 +126,7 @@ const experiences = [
       period: "Feb 2024 – Jul 2024",
       location: "Boston, USA",
       icon: <Building2 className="w-5 h-5" />,
-      logoUrl: "/harvard.png",
+      logoUrl: "/portfolio-website/harvard.png",
       highlights: [
         "Co-invented SPyDERMAN — GAN-based smartphone diagnostics for Hepatitis C (Science Advances 2024)",
         "Developed VISTA — electricity-free AI-powered viral testing cartridge (Advanced Materials Technologies 2025)",
@@ -140,7 +140,7 @@ const experiences = [
       period: "Jun 2023 – Aug 2023",
       location: "Bengaluru, India",
       icon: <Briefcase className="w-5 h-5" />,
-      logoUrl: "/Fidelity-Logo.png",
+      logoUrl: "/portfolio-website/Fidelity-Logo.png",
       highlights: [
         "Led a team of 15 interns to merge 4 internal platforms into one unified NextGen UI",
         "Reduced transaction processing time from 8–10 minutes to under 3 minutes (90% efficiency gain)",
@@ -154,7 +154,7 @@ const experiences = [
       period: "Oct 2022 - Nov 2022",
       location: "Bengaluru, India",
       icon: <Briefcase className="w-5 h-5" />,
-      logoUrl: "/exposys.jpeg",
+      logoUrl: "/portfolio-website/exposys.jpeg",
       highlights: [
         "Developed Early Diabetes Prediction model on 10,000+ patient records",
         "Performed full EDA + feature engineering to reveal key risk patterns",
@@ -168,7 +168,7 @@ const experiences = [
       period: "Feb 2022 – May 2022",
       location: "Bengaluru, India",
       icon: <Briefcase className="w-5 h-5" />,
-      logoUrl: "/sonata.jpeg",
+      logoUrl: "/portfolio-website/sonata.jpeg",
       highlights: [
         "Built fully responsive heritage preservation website for INTACH Bangalore with 360° virtual tours",
         "Led front-end development using HTML, CSS, JavaScript, and Bootstrap",
@@ -418,7 +418,7 @@ useEffect(() => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-1000"></div>
                 <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden bg-white shadow-2xl">
                   <img
-                    src="/profile.png" 
+                    src="/portfolio-website/profile.png" 
                     alt="Manasvi Alam"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -451,8 +451,6 @@ useEffect(() => {
       </section>
       
       {/* Experience Section - IMPROVED MOBILE TIMELINE */}
-      {/* Experience Section - Ultra Compact & Professional */}
-      {/* Experience Section - Clean Hover Glow (No Animated Bar) */}
       <section id="experience" className={getSectionClass("experience")}>
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 bg-clip-text text-transparent">
@@ -960,7 +958,7 @@ useEffect(() => {
 
             {/* FIXED: Now downloads your CV correctly */}
             <a
-              href="/Manasvi_CV.pdf"                
+              href="/portfolio-website/Manasvi_CV.pdf"                
               download="Manasvi_Alam_Resume.pdf"   
               target="_blank"
               rel="noopener noreferrer"
