@@ -425,33 +425,29 @@ useEffect(() => {
       {/* About Section */}
       {/* About Section - Perfect Mobile + Unchanged Desktop */}
       {/* About Section - Mobile: Short & Beautiful | Desktop: Unchanged */}
+      {/* About Section - Mobile: Smaller & Compact | Desktop: 100% Unchanged */}
       <section id="about" className={getSectionClass("about")}>
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-14 text-center bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 bg-clip-text text-transparent">
             About Me
           </h2>
 
-          {/* Mobile: Short, Clean, Perfect */}
+          {/* Mobile: Smaller, Tighter, Beautiful */}
           <div className="md:hidden">
             <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-blue-100">
-              <div className="space-y-4 text-base leading-relaxed text-gray-700">
+              <div className="space-y-4 text-sm leading-relaxed text-gray-700">
                 <p>
-                  I build production AI systems using LLMs, RAG, and deep learning pipelines. At Exponential AI, I lead high-accuracy RAG and document processing systems for major US healthcare networks.
-                </p>
-                <p>
-                  Previously at Harvard Medical School, I developed deep learning diagnostics published in <i>Science Advances</i> and <i>Advanced Materials Technologies</i>.
-                </p>
-                <p>
-                  I value clean code, scalable infrastructure, and turning research into real-world impact.
+                  I build and ship production AI systems using LLMs, RAG, and custom deep learning pipelines. At Exponential AI, I lead the development of high-accuracy RAG and intelligent document processing platforms used across major US healthcare networks. Previously, I conducted deep learning diagnostics research at Harvard Medical School, with publications in Science Advances and Advanced Materials Technologies.
+                  I care about clean, scalable code, reliable ML infrastructure, and turning research into real systems. My goal is simple: build AI that actually works in the wild.
                 </p>
                 <p className="text-blue-600 font-medium pt-2">
-                  Always open to conversations — tech, ideas, or just saying hi.
+                  Always open to thoughtful conversations, whether about tech, careers, or creative ideas.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Desktop: Your Original — 100% Unchanged */}
+          {/* Desktop: Your Original — NOT TOUCHED */}
           <div className="hidden md:block">
             <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 md:p-10 shadow-2xl border border-blue-100">
               <div className="space-y-5 text-base leading-relaxed text-gray-700 max-w-3xl mx-auto">
