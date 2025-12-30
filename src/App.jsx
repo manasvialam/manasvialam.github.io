@@ -468,6 +468,7 @@ useEffect(() => {
               { id: "projects", name: "Projects" },
               { id: "achievements", name: "Achievements" },
               { id: "certifications", name: "Certifications" },
+              { id: "community", name: "Community" },
               { id: "contact", name: "Contact" }
             ].map((item) => (
               <a
@@ -523,6 +524,7 @@ useEffect(() => {
                 { id: "projects", name: "Projects" },
                 { id: "achievements", name: "Achievements" },
                 { id: "certifications", name: "Certifications" },
+                { id: "community", name: "Community" },
                 { id: "contact", name: "Contact" }
               ].map((item) => (
                 <a
@@ -1172,6 +1174,33 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* Community Involvement Section */}
+      <section id="community" className={getSectionClass("community")}>
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 bg-clip-text text-transparent">
+            Community Involvement
+          </h2>
+
+          <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-blue-100">
+            <ul className="space-y-3.5 text-gray-700 text-base leading-snug">
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong className="font-bold text-gray-900">Volunteer, Rashtriya Seva Samithi (RASS)</strong><br />
+                  Worked with disabled children to develop foundational skills for day-to-day activities, tailoring support to their individual learning rate and comfort level. Taught basic English and economics concepts (loans, entrepreneurship) to low-income women, enabling financial independence, and provided emotional support to senior citizens experiencing loneliness.
+                </span>
+              </li>
+              <li className="flex items-start group">
+                <Sparkles className="w-5 h-5 text-blue-600 mr-3.5 mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong className="font-bold text-gray-900">Volunteer, SASTRA Deemed University COVID-19 Outreach (SAHO)</strong><br />
+                  Delivered public health guidance and tracked the health of ~30 patients, providing critical information on vaccinations, oxygen supply, and bed availability. Acted as the primary point of contact between patients and medical authorities to facilitate immediate support during health escalations.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className={getSectionClass("contact")}>
