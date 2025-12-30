@@ -210,7 +210,8 @@ const experiences = [
         "Developed VISTA — electricity-free AI-powered viral testing cartridge (Advanced Materials Technologies 2025)",
         "Achieved 94.59% accuracy detecting HCV at 574 IU/ml — works in areas with no labs or power",
         "Presented AI-for-IVF work at ASRM 2024"
-      ]
+      ],
+      link: "https://shafieelab.bwh.harvard.edu/people" 
     },
     {
       title: "Full-Stack Intern",
@@ -224,6 +225,34 @@ const experiences = [
         "Reduced transaction processing time from 8–10 minutes to under 3 minutes (90% efficiency gain)",
         "Built production-ready dashboards used daily by brokerage operations teams",
         "Presented to senior leadership and received outstanding rating"
+      ]
+    },
+    {
+      title: "Project Intern",
+      organization: "Sastra Deemed University",
+      period: "Jan 2023 – May 2023",
+      location: "Tamil Nadu, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "/SASTRA-logo.png",
+      highlights: [
+        "Conducted a comparative analysis of deep learning models for UCM dataset classification, including CNNs, transfer learning, and fine-tuning across architectures like ResNet152V2, EfficientNetB7, and MobileNet",
+        "Achieved 95.62% classification accuracy, surpassing the previous IEEE benchmark by 8%+",
+        "Optimized models for performance and generalization using data augmentation, hyperparameter tuning, and regularization techniques",
+        "Deployed the classification system on the web via Streamlit, providing an accessible interface for end-users"
+      ]
+    },
+    {
+      title: "AI Intern",
+      organization: "National Chemical Laboratory",
+      period: "July 2022 - Sep 2022",
+      location: "Maharastra, India",
+      icon: <Briefcase className="w-5 h-5" />,
+      logoUrl: "/CSIR-NCL_Logo.png",
+      highlights: [
+        "Applied PCA to high-dimensional chemical datasets for dimensionality reduction and feature selection",
+        "Preprocessed data with normalization, scaling, and missing value handling to ensure robust analysis",
+        "Visualized principal components and loadings to identify dominant patterns in chemical properties",
+        "Supported clustering and predictive modeling using PCA-transformed features to improve model efficiency"
       ]
     },
     {
