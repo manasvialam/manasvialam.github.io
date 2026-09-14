@@ -114,6 +114,13 @@ const App = () => {
   
   const education = [
     {
+      degree: "Master of Science in Artificial Intelligence Engineering - Electrical and Computer Engineering",
+      institution: "Carnegie Mellon University",
+      year: "August 2026 - December 2027",
+      details: "Focus on advanced AI techniques, including deep learning, reinforcement learning, and natural language processing. Engaging in research projects and practical applications of AI in various domains.",
+      icon: <GraduationCap className="w-5 h-5" />,
+    },
+    {
       degree: "B.Tech.Computer Science & Engineering (Artificial Intelligence & Data Science)",
       institution: "SASTRA Deemed University",
       year: "2020 - 2024",
