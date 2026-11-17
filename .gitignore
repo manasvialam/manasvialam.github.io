@@ -1,1 +1,5 @@
 dist/
+
+_old_site/
+node_modules/
+.DS_Store
